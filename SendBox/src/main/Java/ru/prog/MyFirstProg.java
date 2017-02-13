@@ -8,24 +8,25 @@ public class MyFirstProg {
 		hellow("user");
 		hellow("Alexey");
 
-		double len = 5;
-		System.out.println("Площадь квадрата со стороной " + len + " = " + aria(len));
+		Square s = new Square(5);
 
-		double a = 4;
-		double b = 6;
+		System.out.println("Площадь квадрата со стороной " + s.l + " = " + aria(s));
 
-		System.out.println("Площадь прямоугольника со сторонами " + a + " и " + b + " = " + aria(a, b));
+		Rectangle r = new Rectangle(4, 6);
+
+
+		System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " = " + aria(r));
 	}
 	public static void hellow ( String sambody) {
 
 		System.out.println("Hellow, " + sambody + "!");
 	}
 
-	public static double aria ( double l) {
-	return l + l;
+	public static double aria ( Square s) {
+	return s.l + s.l;
 	}
 
-	public static double aria ( double a, double b){
-		return a * b;
+	public static double aria (Rectangle r){
+		return r.a * r.b ;
 	}
 }
