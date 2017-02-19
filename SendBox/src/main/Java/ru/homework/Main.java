@@ -3,7 +3,7 @@ package ru.homework;
 public class Main {
     public static void main(String[] args) {
         Point P1 = new Point(0, 1);
-        Point P2 = new Point(5, 3);
+        Point P2 = new Point(1, 1);
 
        /* P1.x = 0;
         P1.y = 1;
