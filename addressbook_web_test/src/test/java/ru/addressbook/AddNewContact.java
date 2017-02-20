@@ -3,16 +3,11 @@ package ru.addressbook;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
 
 import java.util.concurrent.TimeUnit;
-import java.util.Date;
-import java.io.File;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
-import static org.openqa.selenium.OutputType.*;
 
 public class AddNewContact {
     FirefoxDriver wd;
@@ -21,11 +16,11 @@ public class AddNewContact {
     public void setUp() throws Exception {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        loginInput();
+        wd.get("http://localhost/addressbook/");
+        login();
     }
 
-    private void loginInput() {
-        wd.get("http://localhost/addressbook/");
+    private void login() {
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).clear();
         wd.findElement(By.name("user")).sendKeys("admin");
@@ -36,65 +31,40 @@ public class AddNewContact {
     }
 
     @Test
-    public void NewContactadd() {
+    public void addNewContact() {
 
-
-        addNewMember();
-        addNameMember();
-        addMiddlenameMember();
-        addLastNameMember();
-        addNickName();
-        companyMember();
-        addAddressMember();
-        initMember();
-        gotoHome();
+        newContactCreate();
+        fillContactForm("Alexei", "Vasilevich", "Pronin", "Pronin1973", "BestCompany", "Moscow, Kremlin 1");
+        yankeeGoHome();
     }
 
-    private void gotoHome() {
+    private void yankeeGoHome() {
         wd.findElement(By.linkText("home")).click();
     }
 
-    private void initMember() {
+    private void fillContactForm(String firstmane, String middlename, String lastname, String nickname, String company, String address) {
+        wd.findElement(By.name("firstname")).click();
+        wd.findElement(By.name("firstname")).clear();
+        wd.findElement(By.name("firstname")).sendKeys(firstmane);
+        wd.findElement(By.name("middlename")).click();
+        wd.findElement(By.name("middlename")).sendKeys(middlename);
+        wd.findElement(By.name("lastname")).click();
+        wd.findElement(By.name("lastname")).clear();
+        wd.findElement(By.name("lastname")).sendKeys(lastname);
+        wd.findElement(By.name("nickname")).click();
+        wd.findElement(By.name("nickname")).clear();
+        wd.findElement(By.name("nickname")).sendKeys(nickname);
+        wd.findElement(By.name("company")).click();
+        wd.findElement(By.name("company")).clear();
+        wd.findElement(By.name("company")).sendKeys(company);
+        wd.findElement(By.name("address")).click();
+        wd.findElement(By.name("address")).clear();
+        wd.findElement(By.name("address")).sendKeys(address);
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
-    private void addAddressMember() {
-        wd.findElement(By.name("address")).click();
-        wd.findElement(By.name("address")).clear();
-        wd.findElement(By.name("address")).sendKeys("VVVVVV new Moscow");
-    }
-
-    private void companyMember() {
-        wd.findElement(By.name("company")).click();
-        wd.findElement(By.name("company")).clear();
-        wd.findElement(By.name("company")).sendKeys("BestCompany");
-    }
-
-    private void addNickName() {
-        wd.findElement(By.name("nickname")).click();
-        wd.findElement(By.name("nickname")).clear();
-        wd.findElement(By.name("nickname")).sendKeys("Pronin1973");
-    }
-
-    private void addLastNameMember() {
-        wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys("Pronin");
-    }
-
-    private void addMiddlenameMember() {
-        wd.findElement(By.name("middlename")).sendKeys("\\9");
-        wd.findElement(By.name("lastname")).click();
-    }
-
-    private void addNameMember() {
-        wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys("Alexei");
-        wd.findElement(By.name("middlename")).click();
-    }
-
-    private void addNewMember() {
+    private void newContactCreate() {
         wd.findElement(By.linkText("add new")).click();
-        wd.findElement(By.name("firstname")).click();
     }
 
     @AfterMethod
