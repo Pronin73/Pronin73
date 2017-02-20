@@ -34,7 +34,7 @@ public class AddNewContact {
     public void addNewContact() {
 
         newContactCreate();
-        fillContactForm("Alexei", "Vasilevich", "Pronin", "Pronin1973", "BestCompany", "Moscow, Kremlin 1");
+        fillContactForm(new GroupContactForm("Alexei", "Vasilevich", "Pronin", "Pronin1973", "BestCompany", "Moscow, Kremlin 1"));
         yankeeGoHome();
     }
 
@@ -42,24 +42,24 @@ public class AddNewContact {
         wd.findElement(By.linkText("home")).click();
     }
 
-    private void fillContactForm(String firstmane, String middlename, String lastname, String nickname, String company, String address) {
+    private void fillContactForm(GroupContactForm groupContactForm) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys(firstmane);
+        wd.findElement(By.name("firstname")).sendKeys(groupContactForm.getFirstmane());
         wd.findElement(By.name("middlename")).click();
-        wd.findElement(By.name("middlename")).sendKeys(middlename);
+        wd.findElement(By.name("middlename")).sendKeys(groupContactForm.getMiddlename());
         wd.findElement(By.name("lastname")).click();
         wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys(lastname);
+        wd.findElement(By.name("lastname")).sendKeys(groupContactForm.getLastname());
         wd.findElement(By.name("nickname")).click();
         wd.findElement(By.name("nickname")).clear();
-        wd.findElement(By.name("nickname")).sendKeys(nickname);
+        wd.findElement(By.name("nickname")).sendKeys(groupContactForm.getNickname());
         wd.findElement(By.name("company")).click();
         wd.findElement(By.name("company")).clear();
-        wd.findElement(By.name("company")).sendKeys(company);
+        wd.findElement(By.name("company")).sendKeys(groupContactForm.getCompany());
         wd.findElement(By.name("address")).click();
         wd.findElement(By.name("address")).clear();
-        wd.findElement(By.name("address")).sendKeys(address);
+        wd.findElement(By.name("address")).sendKeys(groupContactForm.getAddress());
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
