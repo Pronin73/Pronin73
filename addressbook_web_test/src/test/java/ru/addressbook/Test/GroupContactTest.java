@@ -1,4 +1,4 @@
-package ru.addressbook.Model;
+package ru.addressbook.Test;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
@@ -8,8 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
+import ru.addressbook.Model.ContactData;
 
-public class AddNewContact {
+public class GroupContactTest {
     FirefoxDriver wd;
     
     @BeforeMethod
