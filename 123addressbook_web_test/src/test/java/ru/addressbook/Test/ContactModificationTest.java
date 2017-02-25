@@ -14,8 +14,21 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 import static org.openqa.selenium.OutputType.*;
 
-public class ContactModificationTest {
-    FirefoxDriver wd;
+public class ContactModificationTest extends TestBase {
+
+ @Test
+    public void testGroupModification(){
+        app.getContactHelper().selectHome();
+
+
+ }
+
+
+
+
+
+
+  /*  FirefoxDriver wd;
     
     @BeforeMethod
     public void setUp() throws Exception {
@@ -25,14 +38,7 @@ public class ContactModificationTest {
     
     @Test
     public void testContactModification () {
-        wd.get("http://localhost/addressbook/");
-        wd.findElement(By.name("user")).click();
-        wd.findElement(By.name("user")).clear();
-        wd.findElement(By.name("user")).sendKeys("admin");
-        wd.findElement(By.name("pass")).click();
-        wd.findElement(By.name("pass")).clear();
-        wd.findElement(By.name("pass")).sendKeys("secret");
-        wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
+        app.getNavigationHelper().goToGroupePage();
         wd.findElement(By.name("selected[]")).click();
         wd.findElement(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img")).click();
         wd.findElement(By.name("firstname")).click();
@@ -70,4 +76,5 @@ public class ContactModificationTest {
             return false;
         }
     }
+    */
 }

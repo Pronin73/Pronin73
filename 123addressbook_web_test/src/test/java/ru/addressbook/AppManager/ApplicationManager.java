@@ -1,6 +1,7 @@
 package ru.addressbook.AppManager;
 
 
+import javafx.scene.control.TextInputControl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -47,4 +48,6 @@ public class ApplicationManager {
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
+
+
 }

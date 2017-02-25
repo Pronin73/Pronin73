@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="addressbook_web_test:test" external.linked.project.path="$MODULE_DIR$/../../addressbook_web_test" external.root.project.path="$MODULE_DIR$/../../addressbook_web_test" external.system.id="GRADLE" external.system.module.group="" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="addressbook_new_web_test:test" external.linked.project.path="$MODULE_DIR$/../../addressbook_new_web_test" external.root.project.path="$MODULE_DIR$/../../addressbook_new_web_test" external.system.id="GRADLE" external.system.module.group="" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
-    <output-test url="file://$MODULE_DIR$/../../addressbook_web_test/build/classes/test" />
+    <output-test url="file://$MODULE_DIR$/../../addressbook_new_web_test/build/classes/test" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../addressbook_web_test/src/test">
-      <sourceFolder url="file://$MODULE_DIR$/../../addressbook_web_test/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../addressbook_web_test/src/test/resources" type="java-test-resource" />
+    <content url="file://$MODULE_DIR$/../../addressbook_new_web_test/src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../addressbook_new_web_test/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../addressbook_new_web_test/src/test/resources" type="java-test-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="addressbook_web_test_main" />
+    <orderEntry type="module" module-name="addressbook_new_web_test_main" />
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-java:2.53.1" level="project" />
     <orderEntry type="library" name="Gradle: org.testng:testng:6.10" level="project" />
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-chrome-driver:2.53.1" level="project" />
@@ -52,6 +52,7 @@
     <orderEntry type="library" name="Gradle: org.eclipse.jetty.websocket:websocket-api:9.2.15.v20160210" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpclient:4.5.2" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore:4.4.4" level="project" />
+    <orderEntry type="module" module-name="addressbook_web_test_test" scope="TEST" />
   </component>
-  <component name="TestModuleProperties" production-module="addressbook_web_test_main" />
+  <component name="TestModuleProperties" production-module="addressbook_new_web_test_main" />
 </module>

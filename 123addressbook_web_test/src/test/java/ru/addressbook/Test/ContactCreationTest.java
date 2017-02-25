@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 import ru.addressbook.Model.ContactData;
 
-public class ContactCreationTest {
+public class ContactCreationTest extends TestBase {
     FirefoxDriver wd;
     
     @BeforeMethod
