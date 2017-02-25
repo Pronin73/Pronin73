@@ -6,7 +6,7 @@ import ru.addressbook.AppManager.ApplicationManager;
 
 public class TestBase {
 
-    protected final ApplicationManager app = new ApplicationManager();
+    public   ApplicationManager app = new ApplicationManager();
 
     @BeforeMethod
     public void setUp() throws Exception {
