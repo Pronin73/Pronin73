@@ -1,4 +1,4 @@
-package addressbook;
+package addressbook.Model;
 
 public class GroupeData {
     private final String name;
