@@ -7,12 +7,13 @@ public class GroupeCreationTest extends TestBase {
 
     @Test
     public void testGroupeCreation() {
+        app.getNavigationHelper().gotoGropePage();
 
-        app.getContactHelper().getNavigationHelper().gotoGropePage();
-        app.getContactHelper().getGroupeHelper().initGropeCreation();
-        app.getContactHelper().getGroupeHelper().fillGroupeForm(new GroupeData("test1", "test2", "test3"));
-        app.getContactHelper().getGroupeHelper().submitGropeCreation();
-        app.getContactHelper().getGroupeHelper().gotoGroupForm();
+        app.getGroupeHelper().initGropeCreation();
+        app.getGroupeHelper().fillGroupeForm(new GroupeData("test1", "test2", "test3"));
+        app.getGroupeHelper().submitGropeCreation();
+        app.getGroupeHelper().gotoGroupForm();
+
     }
 
 }

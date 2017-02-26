@@ -59,7 +59,7 @@ public class ContactHelper {
     }
 
     public void selectedContact() {
-        groupeHelper.selectGroupe();
+        click( By.name("selected[]"));
     }
 
     public GroupeHelper getGroupeHelper() {
@@ -69,12 +69,12 @@ public class ContactHelper {
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
-
-    public void initGroupeModification() {
-        click(By.name("edit"));
+    public void editSelectedContact() {
+        click( By.name("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    }
+    public void updatSelectedContact() {
+        click( By.name("home page"));
     }
 
-    public void submitGroupeModification() {
-        click(By.name("update"));
-    }
+
 }

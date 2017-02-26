@@ -44,4 +44,13 @@ public class ApplicationManager {
     public ContactHelper getContactHelper() {
         return contactHelper;
     }
+    public  GroupeHelper getGroupeHelper() {
+        return groupeHelper;
+    }
+    public NavigationHelper getNavigationHelper() {
+        return navigationHelper;
+    }
+    public SessionHelper getSessionHelper() {
+        return  sessionHelper;
+    }
 }

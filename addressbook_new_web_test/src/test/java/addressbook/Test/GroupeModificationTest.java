@@ -10,12 +10,12 @@ public class GroupeModificationTest extends TestBase {
     public void testGroupeModification(){
 
 
-        app.getContactHelper().getNavigationHelper().gotoGropePage();
-        app.getContactHelper().getGroupeHelper().selectGroupe();
-        app.getContactHelper().initGroupeModification();
-        app.getContactHelper().getGroupeHelper().fillGroupeForm(new GroupeData("test1", "test2", "test3"));
-        app.getContactHelper().submitGroupeModification();
-        app.getContactHelper().getGroupeHelper().gotoGroupForm();
+        app.getNavigationHelper().gotoGropePage();
+        app.getGroupeHelper().selectGroupe();
+        app.getGroupeHelper().initGroupeModification();
+        app.getGroupeHelper().fillGroupeForm(new GroupeData("test1", "test2", "test3"));
+        app.getGroupeHelper().submitGroupeModification();
+        app.getGroupeHelper().gotoGroupForm();
 
     }
 }

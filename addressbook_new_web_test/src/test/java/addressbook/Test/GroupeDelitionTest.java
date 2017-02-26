@@ -7,10 +7,10 @@ public class GroupeDelitionTest extends TestBase {
     
     @Test
     public void testGroupeDelition() {
-        app.getContactHelper().getNavigationHelper().gotoGropePage();
-        app.getContactHelper().getGroupeHelper().selectGroupe();
-        app.getContactHelper().getGroupeHelper().deliteSelectedGroup();
-        app.getContactHelper().getNavigationHelper().gotoGropePage();
+        app.getNavigationHelper().gotoGropePage();
+        app.getGroupeHelper().selectGroupe();
+        app.getGroupeHelper().deliteSelectedGroup();
+        app.getNavigationHelper().gotoGropePage();
     }
 
 }
