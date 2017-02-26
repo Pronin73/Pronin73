@@ -7,8 +7,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class ContactHelper {
 
 
-    protected NavigationHelper navigationHelper;
-    protected GroupeHelper groupeHelper;
+    public  NavigationHelper navigationHelper;
+    public GroupeHelper groupeHelper;
    private FirefoxDriver wd;
 
     public ContactHelper(FirefoxDriver wd) {
@@ -68,5 +68,13 @@ public class ContactHelper {
 
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
+    }
+
+    public void initGroupeModification() {
+        click(By.name("edit"));
+    }
+
+    public void submitGroupeModification() {
+        click(By.name("update"));
     }
 }
