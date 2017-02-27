@@ -2,19 +2,30 @@ package addressbook.AppManager;
 
 
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
 
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+
 public class ApplicationManager {
-    FirefoxDriver wd;
+    WebDriver wd;
 
     private  ContactHelper contactHelper;
     private   GroupeHelper groupeHelper;
     private   NavigationHelper navigationHelper;
     private   SessionHelper sessionHelper;
+    private String browser;
 
-    public static boolean isAlertPresent(FirefoxDriver wd) {
+    public ApplicationManager(String browser) {
+        this.browser = browser;
+    }
+
+    public static boolean isAlertPresent(WebDriver wd) {
         try {
             wd.switchTo().alert();
             return true;
@@ -24,14 +35,20 @@ public class ApplicationManager {
     }
 
     public void init() {
-        wd = new FirefoxDriver();
+        if (Objects.equals(browser, BrowserType.FIREFOX)) {
+            wd = new FirefoxDriver();
+        } else if (Objects.equals(browser, BrowserType.CHROME)) {
+            wd = new ChromeDriver();
+        } else if (Objects.equals(browser, BrowserType.IE)) {
+            wd = new InternetExplorerDriver();
+        }
+
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         navigationHelper = new NavigationHelper(wd);
         groupeHelper = new GroupeHelper(wd);
-        contactHelper = new ContactHelper(wd);
+        contactHelper = new ContactHelper((WebDriver) wd);
         sessionHelper = new SessionHelper(wd);
-
         sessionHelper.login("admin", "secret");
     }
 
@@ -50,7 +67,5 @@ public class ApplicationManager {
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
-    public SessionHelper getSessionHelper() {
-        return  sessionHelper;
-    }
+
 }

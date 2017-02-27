@@ -2,6 +2,7 @@ package addressbook.AppManager;
 
 import addressbook.Model.ContactData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ContactHelper {
@@ -9,9 +10,9 @@ public class ContactHelper {
 
     public  NavigationHelper navigationHelper;
     public GroupeHelper groupeHelper;
-   private FirefoxDriver wd;
+   private WebDriver wd;
 
-    public ContactHelper(FirefoxDriver wd) {
+    public ContactHelper(WebDriver wd) {
         this.wd = wd;
     }
 
@@ -70,7 +71,7 @@ public class ContactHelper {
         return navigationHelper;
     }
     public void editSelectedContact() {
-        click( By.name("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+        click( By.name("//div[1]/div[4]/form[2]/table/tbody/tr[2]/td[8]/a/img"));
     }
     public void updatSelectedContact() {
         click( By.name("home page"));

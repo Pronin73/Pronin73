@@ -2,13 +2,14 @@ package addressbook.AppManager;
 
 import addressbook.Model.GroupeData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class GroupeHelper extends HelperBase  {
 
-    public GroupeHelper(FirefoxDriver wd) {
-        super(wd);
+    public GroupeHelper(WebDriver wd) {
+        super((WebDriver) wd);
     }
 
     public void gotoGroupForm() {
