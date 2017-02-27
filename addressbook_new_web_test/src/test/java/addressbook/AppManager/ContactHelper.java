@@ -71,10 +71,10 @@ public class ContactHelper {
         return navigationHelper;
     }
     public void editSelectedContact() {
-        click( By.name("//div[1]/div[4]/form[2]/table/tbody/tr[2]/td[8]/a/img"));
+        click( By.xpath("//div[1]/div[4]/form[2]/table/tbody/tr[2]/td[8]/a/img"));
     }
     public void updatSelectedContact() {
-        click( By.name("home page"));
+        click( By.name("update"));
     }
 
 
