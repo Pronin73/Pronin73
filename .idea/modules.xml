@@ -8,7 +8,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook_new_web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook_new_web_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook_new_web_test_main.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook_new_web_test_main.iml" group="addressbook_new_web_test" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook_new_web_test_test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook_new_web_test_test.iml" group="addressbook_new_web_test" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook_web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook_web_test.iml" />
     </modules>
   </component>
 </project>

@@ -2,9 +2,7 @@ package addressbook.AppManager;
 
 import addressbook.Model.ContactData;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -15,7 +13,7 @@ public class ContactHelper extends HelperBase {
     public NavigationHelper navigationHelper;
     public GroupeHelper groupeHelper;
     public HelperBase helperBase;
-    private WebDriver wd;
+
 
 
 
@@ -93,6 +91,5 @@ public class ContactHelper extends HelperBase {
     public void updatSelectedContact() {
         click( By.name("update"));
     }
-
 
 }
