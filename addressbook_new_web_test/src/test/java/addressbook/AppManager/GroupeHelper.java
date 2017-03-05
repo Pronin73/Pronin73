@@ -49,4 +49,15 @@ public class GroupeHelper extends HelperBase  {
     public void submitGroupeModification() {
         click(By.name("update"));
     }
+
+    public void createGroup(GroupeData group) {
+       initGropeCreation();
+       fillGroupeForm(group);
+       submitGropeCreation();
+       gotoGroupForm();
+    }
+
+    public boolean isThereAGroup() {
+        return isElementPresent(By.name("selected[]"));
+    }
 }
