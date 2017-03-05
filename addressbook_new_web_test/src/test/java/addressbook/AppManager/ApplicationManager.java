@@ -11,14 +11,13 @@ import org.openqa.selenium.remote.BrowserType;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-
 public class ApplicationManager {
     WebDriver wd;
 
-    private  ContactHelper contactHelper;
-    private   GroupeHelper groupeHelper;
-    private   NavigationHelper navigationHelper;
-    private   SessionHelper sessionHelper;
+    private ContactHelper contactHelper;
+    private GroupeHelper groupeHelper;
+    private NavigationHelper navigationHelper;
+    private SessionHelper sessionHelper;
     private String browser;
 
     public ApplicationManager(String browser) {
@@ -53,7 +52,6 @@ public class ApplicationManager {
     }
 
 
-
     public void stop() {
         wd.quit();
     }
@@ -61,9 +59,11 @@ public class ApplicationManager {
     public ContactHelper getContactHelper() {
         return contactHelper;
     }
-    public  GroupeHelper getGroupeHelper() {
+
+    public GroupeHelper getGroupeHelper() {
         return groupeHelper;
     }
+
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }

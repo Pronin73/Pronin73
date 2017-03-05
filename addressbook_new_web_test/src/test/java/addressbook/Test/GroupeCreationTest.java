@@ -10,7 +10,7 @@ public class GroupeCreationTest extends TestBase {
         app.getNavigationHelper().gotoGropePage();
 
         app.getGroupeHelper().initGropeCreation();
-        app.getGroupeHelper().fillGroupeForm(new GroupeData("test1", "test2", "test3"));
+        app.getGroupeHelper().fillGroupeForm(new GroupeData("test33", null, null));
         app.getGroupeHelper().submitGropeCreation();
         app.getGroupeHelper().gotoGroupForm();
 
