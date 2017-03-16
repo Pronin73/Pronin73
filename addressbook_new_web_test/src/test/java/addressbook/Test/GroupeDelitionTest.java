@@ -21,6 +21,11 @@ public class GroupeDelitionTest extends TestBase {
         app.getNavigationHelper().gotoGropePage();
         List<GroupeData> after = app.getGroupeHelper().getGroupList();
         Assert.assertEquals(after.size(), before.size() - 1);
+
+        before.remove(before.size() -1);
+
+            Assert.assertEquals(before, after);
+
     }
 
 }
