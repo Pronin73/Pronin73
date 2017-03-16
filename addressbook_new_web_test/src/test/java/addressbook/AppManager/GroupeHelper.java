@@ -3,7 +3,11 @@ package addressbook.AppManager;
 import addressbook.Model.GroupeData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class GroupeHelper extends HelperBase  {
@@ -38,8 +42,8 @@ public class GroupeHelper extends HelperBase  {
         click(By.name("delete"));
     }
 
-    public void selectGroupe() {
-        click(By.name("selected[]"));
+    public void selectGroupe(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void initGroupeModification() {
@@ -59,5 +63,20 @@ public class GroupeHelper extends HelperBase  {
 
     public boolean isThereAGroup() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public int getGroupCount() {
+       return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<GroupeData> getGroupList() {
+        List<GroupeData> groups = new ArrayList<GroupeData>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
+        for (WebElement element : elements){
+            String name = element.getText();
+            GroupeData groupe = new GroupeData (name,null, null);
+            groups.add(groupe);
+        }
+        return groups;
     }
 }
