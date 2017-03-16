@@ -1,29 +1,32 @@
 package addressbook.Model;
 
 public class GroupeData {
-    private final String id;
+    private  int id;
     private final String name;
     private final String header;
     private final String footer;
 
 
-
-    public GroupeData( String name, String header, String footer) {
-        this.id = null;
+    public GroupeData(String name, String header, String footer) {
+        this.id = Integer.MAX_VALUE;
         this.name = name;
         this.header = header;
         this.footer = footer;
     }
 
-    public GroupeData(String id, String name, String header, String footer) {
+    public GroupeData(int id, String name, String header, String footer) {
         this.id = id;
         this.name = name;
         this.header = header;
         this.footer = footer;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -46,21 +49,18 @@ public class GroupeData {
 
         GroupeData that = (GroupeData) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         return name != null ? name.equals(that.name) : that.name == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
+        return name != null ? name.hashCode() : 0;
     }
 
     @Override
     public String toString() {
         return "GroupeData{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
     }

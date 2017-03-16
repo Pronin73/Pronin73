@@ -2,9 +2,11 @@ package addressbook.Test;
 
 
 import addressbook.Model.GroupeData;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -31,7 +33,10 @@ public class GroupeModificationTest extends TestBase {
 
         before.remove(before.size() - 1);
         before.add(groupe);
-        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+        Comparator<? super GroupeData> byid = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
+        before.sort(byid);
+        after.sort(byid);
+        Assert.assertEquals(before, after);
 
     }
 }
