@@ -4,6 +4,7 @@ import addressbook.Model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,6 +17,8 @@ public class ContactDelitionTest extends TestBase {
     @Test
     public void testContactDelition() {
         app.getContactHelper().gotoHome();
+        int before = app.getContactHelper().getContactCount();
+
         if (! app.getContactHelper().isThereAContact()) {
             app.getContactHelper().createContact( new ContactData("test1", "Alexei", "Vasilevich", null, "Pro", "\\9", "MyCompaye", "Moscow, Russia", "2", "3"));
         }
@@ -23,7 +26,8 @@ public class ContactDelitionTest extends TestBase {
         app.getContactHelper().deletContact();
         app.getContactHelper().closedWindow();
         app.getContactHelper().gotoHome();
-
+        int after = app.getContactHelper().getContactCount();
+        Assert.assertEquals(after, before - 1);
 
         /*
        app.getContactHelper().
