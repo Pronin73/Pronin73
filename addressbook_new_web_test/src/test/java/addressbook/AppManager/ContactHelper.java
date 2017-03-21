@@ -3,8 +3,12 @@ package addressbook.AppManager;
 import addressbook.Model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
     public ContactHelper(WebDriver wd) {
@@ -72,8 +76,9 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
 
-    public void selectedContact() {
-        click( By.name("selected[]"));
+    public void selectedContact(int index) {
+        wd.findElements( By.name("selected[]")).get(index).click();
+
     }
 
     public GroupeHelper getGroupeHelper() {
@@ -84,8 +89,10 @@ public class ContactHelper extends HelperBase {
         return navigationHelper;
     }
 
-    public void editSelectedContact() {
-        click( By.xpath("//div[1]/div[4]/form[2]/table/tbody/tr[2]/td[8]/a/img"));
+    public void editSelectedContact(int index2) {
+
+        click( By.xpath("//div[1]/div[4]/form[2]/table/tbody/tr["+index2+"]/td[8]/a/img"));
+
     }
 
     public void updatSelectedContact() {
@@ -104,5 +111,24 @@ public class ContactHelper extends HelperBase {
 
     public int getContactCount() {
        return  wd.findElements(By.name("entry")).size();
+    }
+
+    public List<ContactData> getContactList() {
+        String row = " ";
+    List<ContactData> contacts = new ArrayList<ContactData>();
+    List<WebElement> elements = wd.findElements(By.name("entry"));
+    List<WebElement> cells = row.findElements(By.tagName("td"));
+
+    for (WebElement element : elements){
+
+        String lastname = element.getText();
+        String firstname = element.getText();
+        String address = element.getText();
+        ContactData contact = new ContactData(null, firstname, null, lastname, null, null, null, address, null, null );
+        contacts.add(contact);
+        System.out.print(contact);
+
+    }
+    return contacts;
     }
 }

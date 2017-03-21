@@ -9,6 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ContactDelitionTest extends TestBase {
@@ -17,17 +18,23 @@ public class ContactDelitionTest extends TestBase {
     @Test
     public void testContactDelition() {
         app.getContactHelper().gotoHome();
-        int before = app.getContactHelper().getContactCount();
+
 
         if (! app.getContactHelper().isThereAContact()) {
             app.getContactHelper().createContact( new ContactData("test1", "Alexei", "Vasilevich", null, "Pro", "\\9", "MyCompaye", "Moscow, Russia", "2", "3"));
         }
-        app.getContactHelper().selectedContact();
+        List<ContactData> before = app.getContactHelper().getContactList();
+        app.getContactHelper().selectedContact(before.size() - 1);
         app.getContactHelper().deletContact();
         app.getContactHelper().closedWindow();
         app.getContactHelper().gotoHome();
-        int after = app.getContactHelper().getContactCount();
-        Assert.assertEquals(after, before - 1);
+        List<ContactData> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size(), before.size() - 1);
+
+        before.remove(before.size() -1);
+        for (int i = 0; i < after.size(); i++){
+            Assert.assertEquals(before.get(i), after.get(i));
+        }
 
         /*
        app.getContactHelper().
