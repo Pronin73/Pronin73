@@ -23,7 +23,7 @@ public class ContactModificationTest extends TestBase {
         app.getContactHelper().updatSelectedContact();
         app.getContactHelper().gotoHome();
         List<ContactData> after = app.getContactHelper().getContactList();
-        Assert.assertEquals(after.size(), before.size() );
+        Assert.assertEquals(after, before );
     }
 
 }

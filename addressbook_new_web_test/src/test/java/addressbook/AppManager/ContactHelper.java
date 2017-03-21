@@ -123,17 +123,17 @@ public class ContactHelper extends HelperBase {
 
             List<WebElement> cells = element.findElements(By.tagName("td"));
 
-            String checkbox = cells.get(0).getText();
+         //   String checkbox = cells.get(0).getText();
             String lastname = cells.get(1).getText();
             String firstname = cells.get(2).getText();
             String address = cells.get(3).getText();
-            String email = cells.get(4).getText();
+           /* String email = cells.get(4).getText();
             String allphones = cells.get(5).getText();
             String view = cells.get(6).getText();
             String edit = cells.get(7).getText();
             String vcard = cells.get(8).getText();
             String zapasnoy = cells.get(9).getText();
-
+            */
             ContactData contact = new ContactData(null, firstname, null, lastname, null, null, null, address, null, null);
             contacts.add(contact);
 

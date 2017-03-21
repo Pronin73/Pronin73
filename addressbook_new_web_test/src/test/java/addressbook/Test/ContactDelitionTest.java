@@ -32,16 +32,9 @@ public class ContactDelitionTest extends TestBase {
         Assert.assertEquals(after.size(), before.size() - 1);
 
         before.remove(before.size() -1);
-        for (int i = 0; i < after.size(); i++){
-            Assert.assertEquals(before.get(i), after.get(i));
-        }
 
-        /*
-       app.getContactHelper().
-        wd.findElement(By.linkText("home")).click();
-        wd.findElement(By.name("selected[]")).click();
-        wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
-        wd.findElement(By.linkText("home")).click();
-    */
+            Assert.assertEquals(before, after);
+
+
     }
 }
