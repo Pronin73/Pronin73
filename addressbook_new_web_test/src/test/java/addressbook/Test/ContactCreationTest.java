@@ -5,6 +5,7 @@ import addressbook.Model.GroupeData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class ContactCreationTest extends TestBase {
     public void testContactCreation() {
         app.getNavigationHelper().gotoHomePage();
         List<ContactData> before = app.getContactHelper().getContactList();
-        ContactData contact = new ContactData("test1", "Alexei", "Vasilevich", "Pronin", "Pro", "\\9", "MyCompaye", "Moscow, Russia", "2", "3");
+        ContactData contact = new ContactData("test1", "Alexei222", "Vasilevich", "Pronin", "Pro", "\\9", "MyCompaye", "Moscow, Russia", "2", "3");
         app.getContactHelper().createContact(contact);
         app.getContactHelper().addNewContact();
 
@@ -23,13 +24,15 @@ public class ContactCreationTest extends TestBase {
         Assert.assertEquals(after.size(), before.size() + 1);
 
 
-        int max = -100;
+     /*   int max = -100;
         for (ContactData g : after){
             if (g.getId() > max){
                 max = g.getId();
             }
         }
-        contact.setId(max);
+     */
+      //  int max = after.stream().max((Comparator<ContactData>) (o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId();
+        contact.setId(after.stream().max((Comparator<ContactData>) (o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
 
         before.add (contact);
         Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
