@@ -63,9 +63,9 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    public void click(By locator) {
-        wd.findElement(locator).click();
-    }
+  public void click(By locator) {
+      wd.findElement(locator).click();
+   }
 
     public void closedWindow() {
         wd.switchTo().alert().accept();
@@ -88,10 +88,10 @@ public class ContactHelper extends HelperBase {
         return navigationHelper;
     }
 
-    public void editSelectedContact(int index2) {
+    public void editSelectedContact( int index) {
 
-        click(By.xpath("//div[1]/div[4]/form[2]/table/tbody/tr[" + index2 + "]/td[8]/a/img"));
-
+        click(By.xpath("//div[1]/div[4]/form[2]/table/tbody/tr["+index+"]/td[8]/a/img"));
+                        //div[1]/div[4]/form[2]/table/tbody/tr[3]/td[8]/a/img
     }
 
     public void updatSelectedContact() {
