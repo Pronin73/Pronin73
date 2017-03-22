@@ -1,7 +1,6 @@
 package addressbook.Test;
 
 import addressbook.Model.ContactData;
-import addressbook.Model.GroupeData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,13 +12,13 @@ public class ContactCreationTest extends TestBase {
 
     @Test
     public void testContactCreation() {
-        app.getNavigationHelper().gotoHomePage();
+        app.goTo().gotoHomePage();
         List<ContactData> before = app.getContactHelper().getContactList();
         ContactData contact = new ContactData("test1", "Alexei222", "Vasilevich", "Pronin", "Pro", "\\9", "MyCompaye", "Moscow, Russia", "2", "3");
         app.getContactHelper().createContact(contact);
         app.getContactHelper().addNewContact();
 
-        app.getNavigationHelper().gotoHomePage();
+        app.goTo().gotoHomePage();
         List<ContactData> after = app.getContactHelper().getContactList();
         Assert.assertEquals(after.size(), before.size() + 1);
 

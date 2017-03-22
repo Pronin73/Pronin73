@@ -1,32 +1,33 @@
 package addressbook.Model;
 
 public class GroupeData {
-    private  int id;
-    private final String name;
-    private final String header;
-    private final String footer;
-
-
-    public GroupeData(String name, String header, String footer) {
-        this.id = Integer.MAX_VALUE;
-        this.name = name;
-        this.header = header;
-        this.footer = footer;
-    }
-
-    public GroupeData(int id, String name, String header, String footer) {
-        this.id = id;
-        this.name = name;
-        this.header = header;
-        this.footer = footer;
-    }
+    private  int id = Integer.MAX_VALUE;
+    private  String name;
+    private  String header;
+    private  String footer;
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public GroupeData withId(int id) {
         this.id = id;
+        return this;
+    }
+
+    public GroupeData withName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public GroupeData withHeader(String header) {
+        this.header = header;
+        return this;
+    }
+
+    public GroupeData withFooter(String footer) {
+        this.footer = footer;
+        return this;
     }
 
     public String getName() {
