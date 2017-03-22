@@ -1,7 +1,8 @@
 package addressbook.Model;
 
 public class ContactData {
-    private String group;
+    private  int id;
+    private  String group;
     private  String firstname;
     private  String middlename;
     private  String lastname;
@@ -12,9 +13,12 @@ public class ContactData {
     private  String home;
     private  String mobile;
 
-
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public ContactData(String group, String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile) {
+        this.id = 0;
         this.group = group;
         this.firstname = firstname;
         this.middlename = middlename;
@@ -25,6 +29,24 @@ public class ContactData {
         this.address = address;
         this.home = home;
         this.mobile = mobile;
+    }
+
+    public ContactData(int id, String group, String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile) {
+        this.id = id;
+        this.group = group;
+        this.firstname = firstname;
+        this.middlename = middlename;
+        this.lastname = lastname;
+        this.nickname = nickname;
+        this.title = title;
+        this.company = company;
+        this.address = address;
+        this.home = home;
+        this.mobile = mobile;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getFirstname() {
@@ -70,11 +92,12 @@ public class ContactData {
     @Override
     public String toString() {
         return "ContactData{" +
-                "firstname='" + firstname + '\'' +
+                "id='" + id + '\'' +
+                ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -82,6 +105,7 @@ public class ContactData {
 
         ContactData that = (ContactData) o;
 
+        if (id != that.id) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
         if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
         return address != null ? address.equals(that.address) : that.address == null;
@@ -89,10 +113,12 @@ public class ContactData {
 
     @Override
     public int hashCode() {
-        int result = firstname != null ? firstname.hashCode() : 0;
+        int result = id;
+        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);
         return result;
     }
+
 }
 
