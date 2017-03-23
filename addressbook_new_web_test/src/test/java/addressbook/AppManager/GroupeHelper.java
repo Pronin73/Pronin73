@@ -7,7 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class GroupeHelper extends HelperBase  {
@@ -45,6 +47,9 @@ public class GroupeHelper extends HelperBase  {
     public void selectGroupe(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
+    public void selectGroupeById(int id) {
+        wd.findElement(By.cssSelector("input{value ='"+ id + "']")).click();
+    }
 
     public void initGroupeModification() {
         click(By.name("edit"));
@@ -78,6 +83,12 @@ public class GroupeHelper extends HelperBase  {
         deliteSelectedGroup();
         returnToGroupPage();
     }
+    public void delete(GroupeData group) {
+        selectGroupeById(group.getId()
+        );
+        deliteSelectedGroup();
+        returnToGroupPage();
+    }
     public int getGroupCount() {
        return wd.findElements(By.name("selected[]")).size();
     }
@@ -92,4 +103,16 @@ public class GroupeHelper extends HelperBase  {
         }
         return groups;
     }
+    public Set<GroupeData> all () {
+        Set<GroupeData> groups = new HashSet<GroupeData>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
+        for (WebElement element : elements){
+            String name = element.getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            groups.add(new GroupeData ().withId(id).withName(name));
+        }
+        return groups;
+    }
+
+
 }

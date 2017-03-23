@@ -50,12 +50,15 @@ public class GroupeData {
 
         GroupeData that = (GroupeData) o;
 
+        if (id != that.id) return false;
         return name != null ? name.equals(that.name) : that.name == null;
     }
 
     @Override
     public int hashCode() {
-        return name != null ? name.hashCode() : 0;
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 
     @Override

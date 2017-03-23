@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.Set;
 
 public class GroupeDelitionTest extends TestBase {
     @BeforeMethod
@@ -19,18 +20,13 @@ public class GroupeDelitionTest extends TestBase {
 
     @Test
     public void testGroupeDelition() {
-
-        List<GroupeData> before = app.groupe().list();
-        int index = before.size() - 1;
-        app.groupe().delete(index);
-        List<GroupeData> after = app.groupe().list();
+        Set<GroupeData> before = app.groupe().all();
+        GroupeData deletedGroup = before.iterator().next();
+        app.groupe().delete(deletedGroup);
+        Set<GroupeData> after = app.groupe().all();
         Assert.assertEquals(after.size(), before.size() - 1);
 
-        before.remove(index);
-
+        before.remove(deletedGroup);
         Assert.assertEquals(before, after);
-
     }
-
-
 }
